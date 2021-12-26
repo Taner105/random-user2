@@ -16,6 +16,8 @@ const App = () => {
     const [userData, setUserData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [activeLink, setActiveLink] = useState(0);
+    const [addUser, setAddUser] = useState(false);
+    const [addTask, setAddTask] =useState([]);
    
 
 
@@ -24,6 +26,7 @@ const App = () => {
         .then((response) => {
             console.log(response.data.results);
             setUserData(response.data.results)
+            setAddTask(response.data.results)
         })
         .catch((error) => {
             console.log(error);
@@ -34,6 +37,14 @@ const App = () => {
         })
         
     }
+
+    const addClickHandler = () => {
+        
+       
+        setAddUser(true)
+    }
+    
+    
 
     const image = [image1,image2,image3,image4,image5,image6];
 
@@ -51,9 +62,6 @@ const App = () => {
     const activeLinkHandler = (index) => {
         console.log(index);
         setActiveLink(index)
-    }
-    const addClickHandler = () => {
-        onClickHandler()
     }
     
     return (
@@ -90,7 +98,7 @@ const App = () => {
                             })
                         }
                         <Button onClickHandler={onClickHandler} addClickHandler={addClickHandler} />
-                        <Add userData={userData} setUserData={setUserData}/>
+                        <Add addClickHandler={addClickHandler} addTask={addTask} setUserData={setUserData} addUser={addUser}/>
 
                     </div>
                 )}

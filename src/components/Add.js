@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Add = ({userData, setUserData}) => {
+const Add = ({addTask, setUserData, addUser, addClickHandler}) => {
     return (
         <div className='add-user'>
             <div className='user-cheptar'>    
@@ -9,8 +9,10 @@ const Add = ({userData, setUserData}) => {
                 <h3>Phone</h3>
                 <h3>Age</h3>
             </div>
-            {
-                userData.map((user,index) => {
+           
+                
+                 {   
+                    addTask.map((user,index) => {
                     console.log(user);
                     return(
                     <div className='added-user'>
@@ -22,8 +24,12 @@ const Add = ({userData, setUserData}) => {
 
                     )
                 })
+        
+                
                
+            
             }
+                
         </div>
     )
 }
