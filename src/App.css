@@ -3,9 +3,79 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: rgb(245, 149, 65);
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    margin-top: 20px;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* background-color: #f4f4f4; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 .app_img img{
     width: 50px;
     height: 50px;
     border-radius: 50px;
     padding: 10px;
+    margin-left: 40px;
+    
+    
+    
+}
+h1{
+    text-align: center;
+}
+.user-data {
+    width: 600px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    background-color: bisque;
+}
+#img-user{
+    border-radius: 50%;
+    margin-left: 175px;
+    margin-top: 30px;
+}
+button{
+   background-color: purple;
+   color: #fff;
+   padding: 8px 18px;
+   margin: 10px;
+   border-radius: 5px;
+   border: none; 
+   cursor: pointer;
+   font-size: large;
+}
+button:hover{
+    background-color: rgb(245, 149, 65);
+}
+
+.user-cheptar{
+    display:grid;
+    grid-template-columns: 140px 140px 140px 140px;
+    grid-gap: 5px;
+    /* background-color: sandybrown; */
+    
+}
+.user-cheptar h3{
+  
+   background-color: rgb(245, 149, 65);
+   text-align: center;
+   margin-bottom: 10px;
+   color: purple;
+   
+}
+.added-user{
+    display:grid;
+    grid-template-columns: 140px 140px 140px 140px;
+    grid-gap: 5px;
 }

@@ -10,11 +10,13 @@ import image3 from "./assets/growing-up-woman.svg"
 import image4 from "./assets/map.svg"
 import image5 from "./assets/phone.svg"
 import image6 from "./assets/padlock.svg"
+import Add from './components/Add';
 
 const App = () => {
     const [userData, setUserData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [activeLink, setActiveLink] = useState(0);
+   
 
 
     const onClickHandler = () => {
@@ -38,10 +40,10 @@ const App = () => {
     const PhraseGenerator = ({user}) => {
     const phrases = [
       `Hi my name is ${user.name.first} ${user.name.last}`,
-      `My email address is ${user.email}`,
+      `${user.email}`,
       `I was born on ${user.dob.date.slice(0,10)}`,
       `My countries ${user.location.country}`,
-      `My phone number is ${user.phone}`,
+      `Phone number is ${user.phone}`,
       `My gender is ${user.gender}`,
     ]
     return <h1>{phrases[activeLink]}</h1>
@@ -50,42 +52,51 @@ const App = () => {
         console.log(index);
         setActiveLink(index)
     }
+    const addClickHandler = () => {
+        onClickHandler()
+    }
+    
     return (
-        <div className='container'>
+        <div>
             <img style={{width:80, height:80, marginLeft:612, marginTop:50}} src={cw} alt="" />
-            {isLoading ? (
-                <h1>Loading...</h1>
-            ) : (
-                <div className='user-data'>
-                    {
-                        userData.map((user, index) => {
-                            return(
-                                <div className='users' key={index}>
-                                     <img src={user.picture.large} alt="#" />
-                                    <PhraseGenerator user={user} />
-                                
-                                    <div className='app_img'>
-                                        {
-                                            image.map((img, index) => {
-                                               return(
-                                               <img src={img} alt="#" onMouseEnter={() => activeLinkHandler(index)}
-                                               
-                                               />
-                                               
-                                                )
-                                            })
-                                        }
+            <div className='container'>
+                
+                {isLoading ? (
+                    <h1>Loading...</h1>
+                ) : (
+                    <div className='user-data'>
+                        {
+                            userData.map((user, index) => {
+                                return(
+                                    <div className='users' key={index}>
+                                        <img id='img-user' src={user.picture.large} alt="#" />
+                                        <PhraseGenerator user={user} />
+                                    
+                                        <div className='app_img'>
+                                            {
+                                                image.map((img, index) => {
+                                                return(
+                                                <img src={img} alt="#" onClick={() => activeLinkHandler(index)}
+                                                
+                                                />
+                                                
+                                                    )
+                                                })
+                                            }
+                                        </div>
                                     </div>
-                                </div>
-                            
-                            )
-                        })
-                    }
+                                
+                                )
+                            })
+                        }
+                        <Button onClickHandler={onClickHandler} addClickHandler={addClickHandler} />
+                        <Add userData={userData} setUserData={setUserData}/>
 
-                </div>
-            )}
-            <Button onClickHandler={onClickHandler}/>
-            
+                    </div>
+                )}
+                
+                
+            </div>
         </div>
     )
 }
