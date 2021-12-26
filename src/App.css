@@ -61,7 +61,7 @@ button:hover{
 
 .user-cheptar{
     display:grid;
-    grid-template-columns: 140px 140px 140px 140px;
+    grid-template-columns: 140px 220px 140px 40px;
     grid-gap: 5px;
     /* background-color: sandybrown; */
     
@@ -76,6 +76,6 @@ button:hover{
 }
 .added-user{
     display:grid;
-    grid-template-columns: 140px 140px 140px 140px;
+   grid-template-columns: 140px 220px 140px 40px;
     grid-gap: 5px;
 }

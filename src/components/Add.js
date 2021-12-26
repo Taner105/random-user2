@@ -15,7 +15,7 @@ const Add = ({userData, setUserData}) => {
                     return(
                     <div className='added-user'>
                         <p>{user.name.first}</p>
-                        <p>{user.email.slice(0,15)}.</p>
+                        <p>{user.email}</p>
                         <p>{user.phone}</p>
                         <p>{user.dob.age}</p>
                     </div>
